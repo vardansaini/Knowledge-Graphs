@@ -1,19 +1,6 @@
-/**
- * This example showcases sigma's reducers, which aim to facilitate dynamically
- * changing the appearance of nodes and edges, without actually changing the
- * main graphology data.
- */
-
 import Sigma from "sigma";
 import { Coordinates, EdgeDisplayData, NodeDisplayData } from "sigma/types";
 import Graph from "graphology";
-
-
-// import getNodeProgramImage from "sigma/rendering/webgl/programs/node.image";
-// import NodeProgramBorder from "./node.border";
-
-const data = require("./data.json");
-
 import ForceSupervisor from "graphology-layout-force/worker";
 
 // Retrieve some useful DOM elements:
@@ -26,7 +13,7 @@ const searchSuggestions = document.getElementById(
 ) as HTMLDataListElement;
 
 // Instantiate sigma:
-const graph = Graph.from(data);
+const graph = new Graph();
 
 const RED = "#FA4F40";
 const BLUE = "#727EE0";
@@ -71,16 +58,21 @@ graph.nodes().forEach((node, i) => {
   graph.setNodeAttribute(node, "y", 100 * Math.sin(angle));
 });
 
-var set = false;
-// Create the spring layout and start it
-const layout = new ForceSupervisor(graph, {
-  isNodeFixed: (_, attr) => attr.highlighted
-});
-layout.start();
+
 
 resetButton.onclick = function () {
   document.location.reload();
 };
+
+var set = true;
+// Create the spring layout and start it
+const layout = new ForceSupervisor(graph, {
+  isNodeFixed: (_, attr) => attr.highlighted
+});
+
+if (set) {
+  layout.start();
+}
 
 setButton.onclick = function () {
   console.log(setButton.value);
@@ -88,25 +80,17 @@ setButton.onclick = function () {
   if (setButton.value === "off") {
     set = true;
     setButton.value = "on";
+    setButton.textContent = "Live on!";
+    layout.start();
   } else {
     set = false;
     setButton.value = "off";
-  }
-  if (set) {
-    layout.start();
-  } else {
+    setButton.textContent = "Live off!";
     layout.stop();
   }
 };
 
-// const renderer = new Sigma(graph, container);
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const renderer = new Sigma(graph, container, {
-  // We don't have to declare edgeProgramClasses here, because we only use the default ones ("line" and "arrow")
-  // nodeProgramClasses: {
-  //   image: getNodeProgramImage(),
-  //   border: NodeProgramBorder
-  // },
   renderEdgeLabels: true
 });
 

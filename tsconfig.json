@@ -1,16 +1,3 @@
-// {
-//   "compilerOptions": {
-//     "module": "commonjs",
-//     "noImplicitAny": true,
-//     "removeComments": true,
-//     "preserveConstEnums": true,
-//     "sourceMap": true,
-
-//   },
-//   "files": [
-//     "index.ts",
-//   ]
-// }
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
