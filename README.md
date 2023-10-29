@@ -10,7 +10,7 @@ This project is a web application that allows users to visualize graphs. The use
 
 ## Author
 
-This project was created by [Vardan Saini]
+This project was created by [Vardan Saini](https://github.com/vardansaini)
 
 ## Installation
 
