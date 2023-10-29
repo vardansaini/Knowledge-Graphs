@@ -1,0 +1,21 @@
+{
+  "name": "sigma-example-use-reducers",
+  "version": "1.0.0",
+  "description": "This example shows how to use sigma reducers to dynamically change nodes and edges appearance.",
+  "main": "index.js",
+  "scripts": {
+    "start": "kotatsu serve --typescript index.ts --public / ./public"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "graphology": "^0.25.4",
+    "graphology-layout-force": "^0.2.4",
+    "graphology-types": "^0.24.7",
+    "sigma": "^3.0.0-alpha3"
+  },
+  "devDependencies": {
+    "kotatsu": "^0.22.3",
+    "typescript": "^5.2.2"
+  }
+}
