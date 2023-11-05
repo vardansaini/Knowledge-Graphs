@@ -134,44 +134,6 @@ renderer.getMouseCaptor().on("mousedown", () => {
   if (!renderer.getCustomBBox()) renderer.setCustomBBox(renderer.getBBox());
 });
 
-//
-// Create node (and edge) by click
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//
-
-// When clicking on the stage, we add a new node and connect it to the closest node
-// renderer.on("clickStage", ({ event }: { event: { x: number; y: number } }) => {
-//   // Sigma (ie. graph) and screen (viewport) coordinates are not the same.
-//   // So we need to translate the screen x & y coordinates to the graph one by calling the sigma helper `viewportToGraph`
-//   const coordForGraph = renderer.viewportToGraph({ x: event.x, y: event.y });
-
-//   // We create a new node
-//   const node = {
-//     ...coordForGraph,
-//     size: 10,
-//     color: chroma.random().hex()
-//   };
-
-//   // Searching the two closest nodes to auto-create an edge to it
-//   const closestNodes = graph
-//     .nodes()
-//     .map((nodeId) => {
-//       const attrs = graph.getNodeAttributes(nodeId);
-//       const distance =
-//         Math.pow(node.x - attrs.x, 2) + Math.pow(node.y - attrs.y, 2);
-//       return { nodeId, distance };
-//     })
-//     .sort((a, b) => a.distance - b.distance)
-//     .slice(0, 2);
-
-//   // We register the new node into graphology instance
-//   const id = uuid();
-//   graph.addNode(id, node);
-
-//   // We create the edges
-//   closestNodes.forEach((e) => graph.addEdge(id, e.nodeId));
-// });
-
 // Type and declare internal state:
 interface State {
   hoveredNode?: string;
