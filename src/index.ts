@@ -50,6 +50,8 @@ graph.addEdge("5.0", "6.0", { type: "arrow", label: "character in", size: 5 });
 graph.addEdge("6.0", "3.0", { type: "arrow", label: "based on", size: 5 });
 graph.addEdge("5.0", "3.0", { type: "arrow", label: "character in", size: 5 });
 graph.addEdge("7.0", "5.0", { type: "arrow", label: "potrayed by", size: 5 });
+graph.addEdge("7.0", "6.0", { type: "arrow", label: "starred in", size: 5 });
+graph.addEdge("7.0", "4.0", { type: "arrow", label: "born in", size: 5 });
 // graph.import(data);
 
 graph.nodes().forEach((node, i) => {
